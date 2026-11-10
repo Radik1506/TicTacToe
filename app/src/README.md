@@ -41,3 +41,22 @@ mutableStateOf / State<T>
     | Uso tipico                       | Estado en el ViewModel                | Estado UI local (`remember`) and simple ViewModels |
   - Quin escolliries per l’aplicació i per què?
     - StateFlow, ya que permite mas escalabilidad
+
+# 2. Arquitectura utilitzada
+El programa esta separado en 4 archivos:
+## 1. ModelGame.kt
+Este archivo contiene la logica y las bases del juego, esto incluye las bases por cada celda, la tabla, comprobaciones de victoria y cambios de celda entre otros
+## 2. GameViewModel.kt
+Este archivo hace el traspaso de la logica a la pantalla, este tambien guarda el estado actual de la tabla
+## 3. GameScreen.kt
+Este archivo genera el aspecto visual de la aplicación, esto incluye los botones en pantalla y la detección de cada botón, cada uno de estos se convierten en una funcion a traves del archivo anterior
+## 4. MainActivity.kt
+Este archivo inicia GameScreen.kt, que en si inicia los demas.
+# 3. Conceptes apresos
+- return this: no devuelve nada
+- StateFlow: Valor modificable que avisa al ser modificado
+- Separación de modelo
+- Valores immutables con .copy()
+- companion object: funciones que sirven en cualquier situacion dentro de la clase
+- collectAsState(): Guarda un valor como un State, en este caso un StateFlow
+- for ((a, b, c)...): utiliza los valores que pide la funcion llamada para el resultado

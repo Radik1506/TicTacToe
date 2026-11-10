@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
+//Clase que actua como comunicador entre el modelo y la pantalla
 class GameViewModel : ViewModel() {
 
     private val _board = MutableStateFlow(BoardModel.createInitialBoard())

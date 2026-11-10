@@ -1,20 +1,21 @@
 package com.example.tictactoe
 
-// Simbolos: "X", "O", ""
+
+//Clase de las celdas
 data class CellModel(
     val id: Int,
     val position: Int,
     val symbol: String = ""
 )
-
+//Clase general del juego
 data class BoardModel(
     val cells: List<CellModel>,
     val currentTurn: String = "X",
-    val winner: String? = null,        // "X", "O" o null
+    val winner: String? = null,        // Simbolos: "X", "O", ""
     val isDraw: Boolean = false,
     val isGameOver: Boolean = false
 ) {
-
+    //Función que se utiliza para hacer un movimiento
     fun makeMove(position: Int): BoardModel {
         if (isGameOver) return this
         if (cells[position].symbol.isNotEmpty()) return this
@@ -47,12 +48,13 @@ data class BoardModel(
     }
 
     companion object {
+        //Definicion de las posibles lineas ganadoras
         private val winningLines = listOf(
             listOf(0, 1, 2), listOf(3, 4, 5), listOf(6, 7, 8),   // lineas
             listOf(0, 3, 6), listOf(1, 4, 7), listOf(2, 5, 8),   // columnas
             listOf(0, 4, 8), listOf(2, 4, 6)                     // diagonales
         )
-
+        //Función de creación de la tabla
         fun createInitialBoard(): BoardModel =
             BoardModel(cells = List(9) { CellModel(id = it, position = it) })
     }

@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
-@Composable
+@Composable //Crea la pantalla principal
 fun GameScreen(viewModel: GameViewModel = viewModel()) {
     val board by viewModel.board.collectAsState()
 
@@ -57,6 +57,7 @@ fun GameScreen(viewModel: GameViewModel = viewModel()) {
     }
 }
 
+//funcion para dibujar la tabla de casillas
 @Composable
 fun BoardGrid(cells: List<CellModel>, onCellClick: (Int) -> Unit) {
     LazyVerticalGrid(
@@ -74,6 +75,7 @@ fun BoardGrid(cells: List<CellModel>, onCellClick: (Int) -> Unit) {
     }
 }
 
+//Función para mostrar el contenido de una casilla
 @Composable
 fun CellItemView(cell: CellModel, onClick: () -> Unit) {
     val symbolColor = if (cell.symbol == "X") Color(0xFF1565C0) else Color(0xFFC62828)
