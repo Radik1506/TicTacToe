@@ -1,6 +1,6 @@
 # 1.1. Documentació dels components (MVVMSimple)
 - Model: Inicializa solo los valores que serán utilizados.
-- ModelView: Crea las funciones que se utilizarán en la aplicación.
+- ModelView: Conecta las funciones del Model y del View.
 - View: Crea la estructura visual y la interactuabilidad del programa.
 
 Model <-> ModelView <-> View
@@ -17,7 +17,7 @@ Model <-> ModelView <-> View
 ## 2. Immutabilitat i Gestió de l'Estat
 - Com es modifiquen les dades del tauler a MVVM-separatModel? Quin paper juga el mètode .copy() i per què és important per a l'arquitectura reactiva?
   - A través de la función .copy()
-  - Sirve para que no haya manera de perder datos de la carta usada, ya que siempre se mantiene la original
+  - Sirve para que no haya manera de perder datos de la carta usada, ya que siempre se mantiene la original y para que el StateFlow se entere que ha habido un cambio
 ## 3. Avantatges de la separació
 - Per què creieu que és millor desconnectar la lògica de negoci (BoardModel) del propi ViewModel a mesura que l'aplicació creix?
   - Porque esta logica solo modifica los datos de los objetos, entonces mantenerlo en otro archivo solo causaria necesitar funciones de Get/Sets que asi son innecesarios.
